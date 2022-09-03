@@ -55,7 +55,7 @@ function DeathScreen(attacker)
 	local closing = false
 	local aliveCheckAllowed = false
 
-	timer.Simple(0.2, function()
+	timer.Simple(0.4, function()
 		aliveCheckAllowed = true
 	end)
 

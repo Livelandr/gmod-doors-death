@@ -3,7 +3,7 @@ DoorsDeathMenu = DoorsDeathMenu or {}
 
 
 
-/*
+/* 
 
  ALL PHRASES GOES FROM DOWN TO TOP!
 
@@ -22,7 +22,7 @@ DoorsDeathMenu = DoorsDeathMenu or {}
 
 
 function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
-
+ 
 	local phrases
 
 	if attacker:IsPlayer() then -- If is player
@@ -65,14 +65,14 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
             }
 
         elseif attacker:GetClass() == "npc_rush" then
-
+             
             phrases = {
                  
                 { time = 15, text = "CLOSE_DEATH_SCREEN" },
                 { time = 5, text = "Pay attention to any cues that might\nhint at its arrival." },
                 { time = 0, text = "You died to Rush..." }
 
-            }
+            } 
 
         elseif attacker:GetClass() == "npc_glitch" then
 

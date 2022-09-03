@@ -1,7 +1,7 @@
 util.AddNetworkString("DoorsDeath_HandleDeath")
 
 
-hook.Add( "PostPlayerDeath", "DoorsDeathScreen", function( victim, inflictor, attacker )
+hook.Add( "PlayerDeath", "DoorsDeathScreen", function( victim, inflictor, attacker )
 
     net.Start("DoorsDeath_HandleDeath") 
         net.WriteEntity(inflictor)
