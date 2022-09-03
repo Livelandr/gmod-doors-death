@@ -64,6 +64,27 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
                     
             }
 
+        elseif attacker:GetClass() == "npc_rush" then
+
+            phrases = {
+                 
+                { time = 15, text = "CLOSE_DEATH_SCREEN" },
+                { time = 5, text = "Pay attention to any cues that might\nhint at its arrival." },
+                { time = 0, text = "You died to Rush..." }
+
+            }
+
+        elseif attacker:GetClass() == "npc_glitch" then
+
+            phrases = {
+                
+                { time = 21, text = "CLOSE_DEATH_SCREEN" },
+                { time = 15, text = "Stay close together!" },
+                { time = 7, text = "However, I did notice you lagged\nback from your friends." },
+                { time = 0, text = "That is odd. I cannot figure out who\nyou died to." } 
+
+            }
+
         else
 
             phrases = {

@@ -37,7 +37,7 @@ function DeathScreen(attacker)
 
 
 	local from = 500
-	local to = 1000
+	local to = 1000	
 
 	surface.PlaySound( "doorsrblx/deathSound.wav" )
 
@@ -53,12 +53,34 @@ function DeathScreen(attacker)
 	local textStartTime = 0
 	local closingStartTime = 0
 	local closing = false
+	local aliveCheckAllowed = false
 
-	BG.Paint = function(s, w, h) 
+	timer.Simple(0.2, function()
+		aliveCheckAllowed = true
+	end)
 
-		if closing then
-			bgColor = LerpColor(SysTime() - closingStartTime, Color(0, 30, 48, 255), Color(0, 30, 48, 0) )
+	BG.Paint = function(s, w, h) 		
+		
+		if LocalPlayer():Alive() and (not closing) and aliveCheckAllowed then
+
+			print("Closing")
+
+			RunConsoleCommand("stopsound")
+	
+			timer.Simple(0.05, function()
+				surface.PlaySound( "doorsrblx/deathScreenEnd.wav" )
+			end)
+	
+	
+			closing = true
+			closingStartTime = SysTime()
+	
+			timer.Simple(1.7, function()
+				BG:Remove()
+			end)
+
 		end
+
 
 		draw.RoundedBox(0, 0, 0, w, h, bgColor)
 
@@ -81,8 +103,13 @@ function DeathScreen(attacker)
 			diedTextX = math.Clamp(1024 + (1024 * 7 - 1024) * math.ease.InOutCubic(newTime), 0, 1024 * 7)
 			diedTextY = math.Clamp(384 + (384 * 7 - 384) * math.ease.InOutCubic(newTime), 0, 384 * 7)
 
-			textTransparency = math.Clamp(255 + (0 - 255) * newTime / 1.1, 0, 255)
-			bgColor = LerpColor( newTime, Color(25, 0, 0), Color(0, 30, 48) )
+			textTransparency = math.Clamp(255 + (0 - 255) * newTime / 1.1, 0, 255)	
+			
+			if closing then
+				bgColor = LerpColor(SysTime() - closingStartTime, Color(0, 30, 48, 255), Color(0, 30, 48, 0) )
+			else	
+				bgColor = LerpColor( newTime, Color(25, 0, 0), Color(0, 30, 48) )
+			end
 
 
 
@@ -113,6 +140,7 @@ function DeathScreen(attacker)
 
 						timer.Simple(1.7, function()
 							BG:Remove()
+							closing = false
 						end)
 
 					else
