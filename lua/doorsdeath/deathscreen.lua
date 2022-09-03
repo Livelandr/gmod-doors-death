@@ -21,8 +21,6 @@ end
 
 function DeathScreen(attacker)
 
-	RunConsoleCommand("stopsound")
-
 	local phrases = DoorsDeathMenu.HandlePhrases(attacker)
 
 
@@ -102,10 +100,12 @@ function DeathScreen(attacker)
 					end
 
 					if chosenPhrase == "CLOSE_DEATH_SCREEN" and not closing then
-
 						
 						RunConsoleCommand("stopsound")
-						surface.PlaySound( "doorsrblx/deathScreenEnd.wav" )
+
+						timer.Simple(0.05, function()
+							surface.PlaySound( "doorsrblx/deathScreenEnd.wav" )
+						end)
 
 
 						closing = true
