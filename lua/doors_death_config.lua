@@ -45,7 +45,7 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
 
 				{ time = 10, text = "CLOSE_DEATH_SCREEN" },
                 { time = 5, text = "Be careful!" },
-				{ time = 0, text = "You died to" .. attacker:Name() .. "..." }
+				{ time = 0, text = "You died to " .. attacker:Name() .. "..." }
 				
 			}
 
