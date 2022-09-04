@@ -25,6 +25,7 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
  
 	local phrases
 
+
 	if attacker:IsPlayer() then -- If is player
 
 		if attacker:Name() == LocalPlayer():Name() then -- If yourself
@@ -53,8 +54,18 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
 		end
 
 	else
-	
-        if attacker:GetClass() == "worldspawn" then
+
+        if not IsValid(attacker) then
+         
+            phrases = {
+                    
+                { time = 14, text = "CLOSE_DEATH_SCREEN" },
+                { time = 7, text = "How did this even happen?" },
+                { time = 0, text = "That is odd. I cannot figure out who\nyou died to." } 
+    
+            }
+    
+        elseif attacker:GetClass() == "worldspawn" then
             
             phrases = {
 
