@@ -93,15 +93,15 @@ function DeathScreen(attacker)
 
 		if (SysTime() - startTime) < 2.2 then
 
-			diedTextX = Lerp( (SysTime() - startTime) * diedTextSpeed, 1024 * 30, 1024 )
-			diedTextY = Lerp( (SysTime() - startTime) * diedTextSpeed, 384 * 30, 384 )
+			diedTextX = Lerp( (SysTime() - startTime) * diedTextSpeed, (ScrW() / 1.875) * 30, (ScrW() / 1.875) )
+			diedTextY = Lerp( (SysTime() - startTime) * diedTextSpeed, (ScrH() / 2.8125) * 30, (ScrH() / 2.8125) )
 
 		else
 
 			local newTime = (SysTime() - startTime) - 2.2
 
-			diedTextX = math.Clamp(1024 + (1024 * 7 - 1024) * math.ease.InOutCubic(newTime), 0, 1024 * 7)
-			diedTextY = math.Clamp(384 + (384 * 7 - 384) * math.ease.InOutCubic(newTime), 0, 384 * 7)
+			diedTextX = math.Clamp((ScrW() / 1.875) + ((ScrW() / 1.875) * 7 - (ScrW() / 1.875)) * math.ease.InOutCubic(newTime), 0, (ScrW() / 1.875) * 7)
+			diedTextY = math.Clamp((ScrH() / 2.8125) + ((ScrH() / 2.8125) * 7 - (ScrH() / 2.8125)) * math.ease.InOutCubic(newTime), 0, (ScrH() / 2.8125) * 7)
 
 			textTransparency = math.Clamp(255 + (0 - 255) * newTime / 1.1, 0, 255)	
 			
