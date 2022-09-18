@@ -25,7 +25,6 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
  
 	local phrases
 
-
 	if attacker:IsPlayer() then -- If is player
 
 		if attacker:Name() == LocalPlayer():Name() then -- If yourself
@@ -108,13 +107,23 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
 
             }
 
-        elseif attacker:GetClass() == "npc_drg_seek" then
+        elseif attacker:GetClass() == "npc_drg_seek" or attacker:GetClass() == "npc_seek" then
             
             phrases = {
                 
                 { time = 15, text = "CLOSE_DEATH_SCREEN" },
                 { time = 7, text = "Run from him as fast as you can!" },
                 { time = 0, text = "You were caught by Seek..." } 
+
+            }
+
+        elseif attacker:GetClass() == "npc_jack" then
+            
+            phrases = {
+                
+                { time = 15, text = "CLOSE_DEATH_SCREEN" },
+                { time = 7, text = "How did this even happen?" },
+                { time = 0, text = "You died to Jack..." } 
 
             }
 
@@ -125,6 +134,17 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
                 { time = 15, text = "CLOSE_DEATH_SCREEN" },
                 { time = 7, text = "They don't like to be stared at." },
                 { time = 0, text = "You died to the Eyes..." } 
+
+            }
+
+        elseif attacker:GetClass() == "npc_zetaplayer" then
+
+            phrases = {
+                
+                { time = 22, text = "CLOSE_DEATH_SCREEN" },
+                { time = 15, text = "Be careful! Their actions cannot be predicted!" },
+                { time = 7, text = "It looks like this is not a real player... " },
+                { time = 0, text = "You died to " .. attacker:GetNW2String('zeta_name') .. "..." } 
 
             }
 
