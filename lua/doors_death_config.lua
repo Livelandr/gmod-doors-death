@@ -75,7 +75,7 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
                     
             }
 
-        elseif attacker:GetClass() == "npc_rush" then
+        elseif attacker:GetClass() == "npc_rush" or attacker:GetClass() == "npc_livelandr_rush" or attacker:GetClass() == "npc_drg_rushdoors" then
              
             phrases = {
                  
@@ -93,6 +93,38 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
                 { time = 15, text = "Stay close together!" },
                 { time = 7, text = "However, I did notice you lagged\nback from your friends." },
                 { time = 0, text = "That is odd. I cannot figure out who\nyou died to." } 
+
+            }
+
+        
+        elseif attacker:GetClass() == "npc_ambush" or attacker:GetClass() == "npc_livelandr_ambush" or attacker:GetClass() == "npc_drg_ambushdoors" then
+
+            phrases = {
+                
+                { time = 21, text = "CLOSE_DEATH_SCREEN" },
+                { time = 15, text = "Use what you have learned from\nRush!" },
+                { time = 7, text = "It is a tricky one." },
+                { time = 0, text = "You died to who you call Ambush..." } 
+
+            }
+
+        elseif attacker:GetClass() == "npc_drg_seek" then
+            
+            phrases = {
+                
+                { time = 15, text = "CLOSE_DEATH_SCREEN" },
+                { time = 7, text = "Run from him as fast as you can!" },
+                { time = 0, text = "You were caught by Seek..." } 
+
+            }
+
+        elseif attacker:GetClass() == "npc_livelandr_eyes" then
+            
+            phrases = {
+                
+                { time = 15, text = "CLOSE_DEATH_SCREEN" },
+                { time = 7, text = "They don't like to be stared at." },
+                { time = 0, text = "You died to the Eyes..." } 
 
             }
 

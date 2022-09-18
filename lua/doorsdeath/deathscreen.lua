@@ -21,6 +21,8 @@ end
 
 function DeathScreen(attacker)
 
+	RunConsoleCommand("dsp_off", 1)
+
 	local phrases = DoorsDeathMenu.HandlePhrases(attacker)
 
 
@@ -69,6 +71,7 @@ function DeathScreen(attacker)
 	
 			timer.Simple(0.05, function()
 				surface.PlaySound( "doorsrblx/deathScreenEnd.wav" )
+				RunConsoleCommand("dsp_off", 0)
 			end)
 	
 	
