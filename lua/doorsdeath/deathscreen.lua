@@ -17,7 +17,10 @@ local function LerpColor(t, colorfrom, colorto )
 
 end
 
+CreateClientConVar( "doorsdeathscreen_stopsound", "1", true, false)
 
+
+local deathMusic
 
 function DeathScreen(attacker)
 
@@ -25,6 +28,7 @@ function DeathScreen(attacker)
 
 	local phrases = DoorsDeathMenu.HandlePhrases(attacker)
 
+	print(cvars.Bool( "doorsdeathscreen_stopsound", true ))
 
 	local bgColor = Color(25, 0, 0)
 
@@ -45,7 +49,12 @@ function DeathScreen(attacker)
 
 	timer.Simple(1.1, function()
 		
-		surface.PlaySound( "doorsrblx/guiding_lights.wav" )
+		if IsValid(deathMusic) then
+			deathMusic:Stop()
+		end
+
+		deathMusic = CreateSound( LocalPlayer(), "doorsrblx/guiding_lights.wav")
+		deathMusic:Play()
 
 	end)
 
@@ -65,10 +74,8 @@ function DeathScreen(attacker)
 		
 		if LocalPlayer():Alive() and (not closing) and aliveCheckAllowed then
 
-			print("Closing")
+			deathMusic:Stop()
 
-			RunConsoleCommand("stopsound")
-	
 			timer.Simple(0.05, function()
 				surface.PlaySound( "doorsrblx/deathScreenEnd.wav" )
 				RunConsoleCommand("dsp_off", 0)
@@ -131,7 +138,7 @@ function DeathScreen(attacker)
 
 					if chosenPhrase == "CLOSE_DEATH_SCREEN" and not closing then
 						
-						RunConsoleCommand("stopsound")
+						deathMusic:Stop()
 
 						timer.Simple(0.05, function()
 							surface.PlaySound( "doorsrblx/deathScreenEnd.wav" )
