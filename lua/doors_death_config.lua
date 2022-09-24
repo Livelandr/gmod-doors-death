@@ -148,6 +148,19 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
 
             }
 
+        elseif attacker:GetClass() == "doors_room" then -- 8)
+            
+            phrases = {
+                
+                { time = 29, text = "CLOSE_DEATH_SCREEN" },
+                { time = 22, text = "Either you are Livelandr,\n or you just peeked into the config." },
+                { time = 17, text = "Ok. No more questions." },
+                { time = 10, text = "How the hell you died from it?" },
+                { time = 5, text = "doors_room?" },
+                { time = 0, text = "You died to... what..?" } 
+
+            }
+
         else
 
             phrases = {
