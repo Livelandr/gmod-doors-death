@@ -183,6 +183,17 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
 
             }
 
+        elseif attacker:GetClass() == "l55_drgdoors_closet" then
+
+            phrases = {
+                
+                { time = 22, text = "CLOSE_DEATH_SCREEN" },
+                { time = 15, text = "You may need to hop in and out of a\nhiding spot repeatedly to avoid Hide." },
+                { time = 7, text = "Minimize the time you spend hiding." },
+                { time = 0, text = "You died to Hide..." } 
+
+            }
+
         elseif attacker:GetClass() == "npc_zetaplayer" then
 
             phrases = {
