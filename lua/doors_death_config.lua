@@ -74,7 +74,9 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
                     
             }
 
-        elseif attacker:GetClass() == "npc_rush" or attacker:GetClass() == "npc_livelandr_rush" or attacker:GetClass() == "npc_drg_rushdoors" then
+        elseif attacker:GetClass() == "npc_rush" or attacker:GetClass() == "npc_livelandr_rush" or attacker:GetClass() == "npc_drg_rushdoors" 
+        or attacker:GetClass() == "l55_drgdoors_rush" 
+        then
              
             phrases = {
                  
@@ -96,7 +98,9 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
             }
 
         
-        elseif attacker:GetClass() == "npc_ambush" or attacker:GetClass() == "npc_livelandr_ambush" or attacker:GetClass() == "npc_drg_ambushdoors" then
+        elseif attacker:GetClass() == "npc_ambush" or attacker:GetClass() == "npc_livelandr_ambush" or attacker:GetClass() == "npc_drg_ambushdoors"
+            or attacker:GetClass() == "l55_drgdoors_ambush"
+        then
 
             phrases = {
                 
@@ -107,7 +111,7 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
 
             }
 
-        elseif attacker:GetClass() == "npc_drg_seek" or attacker:GetClass() == "npc_seek" then
+        elseif attacker:GetClass() == "npc_drg_seek" or attacker:GetClass() == "npc_seek" or attacker:GetClass() == "l55_drgdoors_seek" then
             
             phrases = {
                 
@@ -117,23 +121,44 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
 
             }
 
-        elseif attacker:GetClass() == "npc_jack" then
+        elseif attacker:GetClass() == "npc_jack" or attacker:GetClass() == "l55_drgdoors_jack" then
             
             phrases = {
                 
                 { time = 15, text = "CLOSE_DEATH_SCREEN" },
-                { time = 7, text = "How did this even happen?" },
+                { time = 7, text = "Just... How?!" },
                 { time = 0, text = "You died to Jack..." } 
 
             }
 
-        elseif attacker:GetClass() == "npc_livelandr_eyes" then
+        elseif attacker:GetClass() == "npc_livelandr_eyes" or attacker:GetClass() == "l55_drgdoors_eyes" then
             
             phrases = {
                 
                 { time = 15, text = "CLOSE_DEATH_SCREEN" },
                 { time = 7, text = "They don't like to be stared at." },
                 { time = 0, text = "You died to the Eyes..." } 
+
+            }
+
+        elseif attacker:GetClass() == "l55_drgdoors_figure" then
+            
+            phrases = {
+                
+                { time = 15, text = "CLOSE_DEATH_SCREEN" },
+                { time = 7, text = "It cannot see, but it will use sounds\nand vibrations to its advantage." },
+                { time = 0, text = "You died to who you call Figure..." } 
+
+            }
+
+        elseif attacker:GetClass() == "l55_drgdoors_screech" then
+            
+            phrases = {
+                
+                { time = 22, text = "CLOSE_DEATH_SCREEN" },
+                { time = 15, text = "If you suspect that it is around, look\nfor it and stare it down." },
+                { time = 7, text = "It likes to lurk in dark rooms." },
+                { time = 0, text = "You died to Screech..." } 
 
             }
 

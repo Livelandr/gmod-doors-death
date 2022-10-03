@@ -28,8 +28,6 @@ function DeathScreen(attacker)
 
 	local phrases = DoorsDeathMenu.HandlePhrases(attacker)
 
-	print(cvars.Bool( "doorsdeathscreen_stopsound", true ))
-
 	local bgColor = Color(25, 0, 0)
 
 	local noiseMaterial = Material("doors/noise.png", "noclamp smooth")
