@@ -162,6 +162,27 @@ function DoorsDeathMenu.HandlePhrases(attacker, inflictor)
 
             }
 
+        elseif attacker:GetClass() == "l55_drgdoors_seek_arm" then
+            
+            phrases = {
+                
+                { time = 15, text = "CLOSE_DEATH_SCREEN" },
+                { time = 7, text = "Tentacles 8)" },
+                { time = 0, text = "You died to Seek's arm..." } 
+
+            }
+
+        elseif attacker:GetClass() == "l55_drgdoors_depths" or attacker:GetClass() == "l55_drgdoors_silence" then
+            
+            phrases = {
+                
+                { time = 22, text = "CLOSE_DEATH_SCREEN" },
+                { time = 15, text = "Well... Uh... I don't know who is it..." },
+                { time = 7, text = "It looks like i must know who it is..." },
+                { time = 0, text = "Wait..." } 
+
+            }
+
         elseif attacker:GetClass() == "npc_zetaplayer" then
 
             phrases = {
