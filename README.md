@@ -1,0 +1,2 @@
+# gmod-doors-death
+obsolete
